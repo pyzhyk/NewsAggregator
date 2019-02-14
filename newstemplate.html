@@ -1,0 +1,57 @@
+<html>
+<head>
+  <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css'>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/css/dataTables.bootstrap4.min.css" rel="stylesheet"/>
+  <style>
+      th {
+        align: center;
+      }
+      table {
+        width: 90%;
+        table-layout: fixed;
+      }
+      td {
+        width: 60%;
+        word-wrap: break-word;
+      }
+      table a {
+        display: block;
+      }
+  </style>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('#main').DataTable();
+    });
+  </script>
+  <title>{{ .Title }}</title>
+  </head>
+<body>
+  <div class="container col-lg-10 mt-5">
+<center><h1>{{ .Title }}</h1></center>
+
+<table id="main" class="table table-light table-hover table-bordered table-striped table-inverse mt-3">
+    <thead class="thead-dark" align="center">
+      <th>Source</th>
+        <th>Title</th>
+        <th>Description</th>
+    </thead>
+
+    <tbody>
+      {{ range $key, $value := .News}}
+
+        <tr>
+          <td><h4><a href="https://{{ $value.Source }}">{{ $value.Source }}</a></h4></td>
+          <td><h3><a href="{{ $value.Location }}">{{ $key }}</a></h3></td>
+          <td>{{ $value.Description }}</td>
+        </tr>
+
+      {{ end }}
+    </tbody>
+</table>
+</div>
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/js/jquery.dataTables.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.13/js/dataTables.bootstrap4.min.js"></script>
+</html>
