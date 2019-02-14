@@ -34,7 +34,7 @@ func index_handler(w http.ResponseWriter, r *http.Request) {
     <head><title>Index</title>
     <body>
     <center>
-    <p><a href="/news/">News Aggregator</a></p>
+    <p><a href="/news/">Recent News</a></p>
     <p><a href="/about/">About</a></p>
     </center>
     </body>
@@ -68,7 +68,19 @@ func newsAgg_handler(w http.ResponseWriter, r *http.Request) {
 }
 
 func about_handler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "About page!!!")
+	fmt.Fprintf(w, `<html>
+    <head><title>About</title>
+    <body>
+    <center>
+    <p><a href="https://github.com/mrlibertarian/NewsAggregator">News Aggregator</a> is a simple RSS news aggregator written in Go.</p>
+    <p>Please, donate: <b>BTC <a href="bitcoin:15EmrTsRjFuuiRgohSPKqDjjAXdisWULbs">15EmrTsRjFuuiRgohSPKqDjjAXdisWULbs</a></b></p>
+    <p><a href="bitcoin:15EmrTsRjFuuiRgohSPKqDjjAXdisWULbs"><img src="/img/Bitcoin-QR.png"></a></p>
+
+    <p><a href="/news/">Recent News</a></p>
+    <p><a href="/">Index</a></p>
+    </center>
+    </body>
+    </html>`)
 }
 
 func main() {
@@ -77,6 +89,7 @@ func main() {
 	var ServePort string = ":" + Port
 
 	fmt.Printf("Serving on http://127.0.0.1%s", ServePort)
+  http.Handle("/img/", http.StripPrefix("/img/",http.FileServer(http.Dir("Images"))))
 	http.HandleFunc("/", index_handler)
 	http.HandleFunc("/about", about_handler)
 	http.HandleFunc("/about/", about_handler)

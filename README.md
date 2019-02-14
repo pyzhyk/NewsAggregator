@@ -5,7 +5,7 @@
 [license]: https://www.gnu.org/licenses/gpl.html
 
 
-## Simple news aggregator written in Go
+#### Simple RSS news aggregator written in Go
 
 ## Getting started
 
