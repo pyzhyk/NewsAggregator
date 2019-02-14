@@ -7,6 +7,8 @@
 
 #### Simple RSS news aggregator written in Go
 
+![Screenshot-1](Images/Screenshot-1.png)
+
 ## Getting started
 
 - Add your favorite RSS feeds to `news.txt`
