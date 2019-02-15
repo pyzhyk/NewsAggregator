@@ -31,7 +31,7 @@ type NewsAgg struct {
 
 func index_handler(w http.ResponseWriter, r *http.Request) {
   fmt.Fprintf(w, `<html>
-    <head><title>Index</title>
+    <head><title>Index | News Aggregator</title>
     <body>
     <center>
     <p><a href="/news/">Recent News</a></p>
@@ -62,20 +62,19 @@ func newsAgg_handler(w http.ResponseWriter, r *http.Request) {
 					}
 	}
 
-	p := NewsAgg{Title: "Recent News", News: news_map }
+	p := NewsAgg{Title: "Recent News | News Aggregator", News: news_map }
 	t, _ := template.ParseFiles("newstemplate.html")
 	t.Execute(w,p)
 }
 
 func about_handler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, `<html>
-    <head><title>About</title>
+    <head><title>About | News Aggregator</title>
     <body>
     <center>
     <p><a href="https://github.com/mrlibertarian/NewsAggregator">News Aggregator</a> is a simple RSS news aggregator written in Go.</p>
     <p>Please, donate: <b>BTC <a href="bitcoin:15EmrTsRjFuuiRgohSPKqDjjAXdisWULbs">15EmrTsRjFuuiRgohSPKqDjjAXdisWULbs</a></b></p>
     <p><a href="bitcoin:15EmrTsRjFuuiRgohSPKqDjjAXdisWULbs"><img src="/img/Bitcoin-QR.png"></a></p>
-
     <p><a href="/news/">Recent News</a></p>
     <p><a href="/">Index</a></p>
     </center>
@@ -88,7 +87,7 @@ func main() {
 
 	var ServePort string = ":" + Port
 
-	fmt.Printf("Serving on http://127.0.0.1%s", ServePort)
+	fmt.Printf("Serving at http://127.0.0.1%s", ServePort)
   http.Handle("/img/", http.StripPrefix("/img/",http.FileServer(http.Dir("Images"))))
 	http.HandleFunc("/", index_handler)
 	http.HandleFunc("/about", about_handler)
