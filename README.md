@@ -1,4 +1,4 @@
-# [News Aggregator](https://github.com/mrlibertarian/NewsAggregator/)
+# [News Aggregator](https://github.com/pyzhyk/NewsAggregator/)
 
 [![License](https://img.shields.io/badge/license-GPL-yellow.svg)][license]
 
