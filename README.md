@@ -7,14 +7,21 @@
 
 #### Simple RSS news aggregator written in Go
 
-![Screenshot-1](Images/Screenshot-1.png)
+## Prerequisites
+
+- Go — [golang.org/doc/install](https://golang.org/doc/install)
 
 ## Getting started
 
 - Add your favorite RSS feeds to `news.txt`
-- Run aggregator: `go run main.go news.txt`
+- Run aggregator:
+```bash
+go run main.go news.txt
+```
 
-#### Default port is 800. It can be changed in main.go line 75 (	`var Port string = "800"` ).
+![Screenshot-1](Images/Screenshot-1.png)
+
+#### Default port is 800. It can be changed in main.go at line 75 (	`var Port string = "800"` ).
 
 ## Donation
 
