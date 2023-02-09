@@ -22,9 +22,3 @@ go run main.go news.txt
 ![Screenshot-1](Images/Screenshot-1.png)
 
 #### Default port is 800. It can be changed in main.go at line 75 (	`var Port string = "800"` ).
-
-## Donation
-
-[![Bitcoin QR-code](Images/Bitcoin-QR.png)](bitcoin:15EmrTsRjFuuiRgohSPKqDjjAXdisWULbs)
-
-**BTC 15EmrTsRjFuuiRgohSPKqDjjAXdisWULbs**
